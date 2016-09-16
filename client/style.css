@@ -1,0 +1,32 @@
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+.topBar{
+  background-color: red;
+  height: 10%;
+  padding-top: 2%
+}
+.sideBar{
+  background-color: blue;
+  height: 90%;
+}
+.main{
+  background-color: green;
+  height: 90%
+}
+.login{
+}
+.searchBar{
+  height: 70%;
+  border-radius: 5px;
+}
+#map{
+  height: 100%
+}
+.truck{
+  border: 1px solid black;
+  background-color: white;
+}
