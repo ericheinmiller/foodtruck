@@ -1,6 +1,11 @@
 {
   "name": "foodtruck",
   "version": "1.0.0",
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,10 +15,15 @@
   "author": "Eric Heinmiller",
   "license": "ISC",
   "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "nodemon": "^1.10.2",
     "pg": "^6.1.0",
-    "sequelize": "^3.24.3"
+    "sequelize": "^3.24.3",
+    "webpack": "^1.13.2"
   }
 }
