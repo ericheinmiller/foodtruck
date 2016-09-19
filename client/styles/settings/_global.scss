@@ -1,0 +1,54 @@
+
+
+// Global Color Variables
+$palette-key: 'base' !default;
+
+$palette: (
+    white: (
+        base: #fff
+    ),
+
+    black: (
+        base: #000000
+    ),
+
+    blue: (
+        light: #00E0FF,
+        base: #24527A,
+        dark: #34495E
+    ),
+
+    gray: (
+        dark: #414A50,
+        light: #d8d8d8,
+    ),
+
+    gradient: (
+        base: #1f024c,
+        secondary: #45056e,
+        tertiary: #8f1383,
+        quaternary: #b72a67,
+    )
+);
+
+@function palette($color-name, $color-variant: $palette-key) {
+    //make the  variant optional
+    @if ($color-variant != null) {
+        @return map-get(map-get($palette, $color-name), $color-variant);
+    } @else {
+        @return map-get($palette, $color-name);
+    }
+}
+
+
+// Global Text Declarations
+$fontSize--default  : 12px;
+$fontSize--small    : 10px;
+$fontSize--medium   : 14px;
+$fontSize--large    : 16px;
+
+$lineHeight--default   : 1.5;
+
+
+// Global Border Radius
+$border-radius-default: 3px;

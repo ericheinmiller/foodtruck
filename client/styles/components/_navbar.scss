@@ -1,0 +1,12 @@
+.topBar{
+    background-color: palette(gray, dark);
+    height: 10%;
+    padding-top: 2%
+}
+
+.sideBar{
+    background-color: palette(gray, light);
+    height: 80%;
+    overflow: scroll;
+    border: 5px solid palette(gray, dark);
+}

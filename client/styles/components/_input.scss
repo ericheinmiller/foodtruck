@@ -1,0 +1,17 @@
+.inputGroup {
+    padding: 5px;
+    position: relative;
+    box-sizing: border-box;
+}
+    .inputGroup__btn,
+    .inputGroup__textBox,
+    {
+        padding: 5px 7px;
+        border-radius: $border-radius-default;
+        text-align: center;
+        width: 100%;
+    }
+
+    .inputGroup__textBox {
+        border: 1px solid palette(gray, light);
+    }

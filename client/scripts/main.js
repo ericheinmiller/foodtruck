@@ -2,18 +2,28 @@ $(document).ready(function(){
 
   //initial variable declaration
   var map,
-  infowindow, 
-  address, 
+  infowindow,
+  address,
   home = false,
   address_search = null,
   trucksArray = [],
   selectedTruck,
+  buttonState,
   sanFranciscoLatLong = {lat: 37.774, lng: -122.419};
 
-  //When search button is clicked, address is sent to backend via post
-  $('.login').click(function(){
-    address = $('.searchBar').val();
+
+  //when data-action="search" is clicked or when 'enter' key is pressed fire a search
+  $(document).bind('keypress', function(e) {
+      if(e.keyCode==13){
+         $('[data-action=search]').trigger('click');
+       }
+  });
+
+  $('[data-action=search]').click(function(){
+    buttonState = $('.inputGroup__btn').button('loading');
+    address = $('[data-element=searchInput]').val();
     $.post("http://localhost:8888/address", {address: address}, function(searchOutput){
+      buttonState.button('reset');
       console.log(searchOutput);
 
       //reset home, and all the arrays
@@ -33,10 +43,10 @@ $(document).ready(function(){
   //Google Places Map
   function initMap() {
 
-    //set location of home address OR default SF 
+    //set location of home address OR default SF
     map = new google.maps.Map(document.getElementById('map'), {
       center: address_search || sanFranciscoLatLong,
-      zoom: 13 
+      zoom: 13
     });
 
     var request = {
@@ -71,16 +81,16 @@ $(document).ready(function(){
         for (var j = 0; j < trucksArray.length; j++) {
             createMarker(trucksArray[j]);
         }
-        //at the end of the loops, join all the items in the truckDIVarray and put into the sidebar
       }
     }
 
     //function to run when a marker is clicked to give more information to user about trucks
     function focusTruck(truck){
-        $(".sideBar").html('<div>' +  truck.applicant + 
-                           '<p>' + truck.info + '</p>' +
-                           '<p>Hours: ' + truck.starttime + ' - ' + truck.endtime + '</p>' +
-                           '<div>');
+        $('[data-element=searchResults]').html('<div class="util-padding-lg">' +
+                                                '<p>' + truck.applicant + '</p>' +
+                                                '<p>' + truck.info + '</p>' +
+                                                '<p>Hours: ' + truck.starttime + ' - ' + truck.endtime + '</p>' +
+                                                '</div>');
     }
 
   //Function to create food truck markers

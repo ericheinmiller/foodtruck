@@ -4,33 +4,56 @@
     <!-- Javascript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="./scripts/main.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/js/bootstrap-select.min.js"></script>
     <!-- Javascript -->
 
     <!-- Bootstrap and Styles -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> 
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./styles/style.css">
     <!-- Bootstrap and Styles -->
 
 
   </head>
   <body>
-    <div class="container">
-      <div class="topBar col-lg-12">
-        <button class="login btn btn-primary col-lg-3">Login / Register</button>
-        <input class="searchBar col-lg-5 col-lg-offset-1" placeholder="Type Address...">
-        <select class="miles col-lg-2 col-lg-offset-1">
-          <option>5</option>
-          <option>10</option>
-          <option>25</option>
-          <option>50</option>
-        </select>
-      </div>
-      <div class="sideBar col-lg-3">
-      </div>
-      <div class="main col-lg-9">
-        <div id="map"></div>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxGA3L3F3l7bWLB3z1zKo7X-J19alAn4A&libraries=places"></script></script>
-      </div>
-    </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="topBar">
+                        <div class="inputGroup">
+                            <div class="col-lg-4">
+                                <button data-action="search" data-loading-test="Loading Trucks..." class="btn btn-primary inputGroup__btn">Search</button>
+                            </div>
+                            <div class="col-lg-4">
+                                <input data-element="searchInput" class="inputGroup__textBox" placeholder="Type Address...">
+                            </div>
+                            <div class="col-lg-4">
+                                <select data-element="selectRadius" class="miles util-width--full selectpicker">
+                                  <option>5</option>
+                                  <option>10</option>
+                                  <option>25</option>
+                                  <option>50</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div data-element="sideNavigation" class="col-lg-3">
+                    <div class="sideBar">
+                        <div data-element="searchResults"></div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="main">
+                        <div data-element="map" id="map" class="googleMap"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxGA3L3F3l7bWLB3z1zKo7X-J19alAn4A&libraries=places"></script>
   </body>
 </html>

@@ -1,0 +1,52 @@
+//out: style.css
+
+@import './settings/_global';
+
+@import './components/_navbar';
+@import './components/_input';
+
+@import './utilities/_padding';
+@import './utilities/_width';
+
+@import './keyframes/_animations';
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(225deg, palette(gradient), palette(gradient, secondary), palette(gradient, tertiary), palette(gradient, quaternary));
+    background-size: 800% 800%;
+
+    -webkit-animation: AnimationName 36s ease infinite;
+    -moz-animation: AnimationName 36s ease infinite;
+    animation: AnimationName 36s ease infinite;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+
+.app-container {
+    padding: 25px;
+}
+
+.main{
+    height: 80%;
+}
+
+.login{
+    height: 70%;
+}
+
+.googleMap{
+    height: 100%;
+    border: 5px solid palette(gray, dark);
+}
+
+.truck{
+    border: 1px solid palette(black);
+    background-color: palette(white);
+}
