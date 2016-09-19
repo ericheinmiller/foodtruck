@@ -12,12 +12,14 @@ button:focus {
 .sideBar{
   background-color: blue;
   height: 90%;
+  overflow: scroll;
 }
 .main{
   background-color: green;
   height: 90%
 }
 .login{
+  height: 70%;
 }
 .searchBar{
   height: 70%;
