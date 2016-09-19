@@ -5,7 +5,6 @@ var HTTP = require('http');
 var path = require('path');
 //**************EXPRESS SETUP**************
 
-
 //*********BODY PARSER + EXPRESS***********
 var bodyParser = require('body-parser');
 APP.use(bodyParser.urlencoded({ extended: false }));
@@ -17,6 +16,6 @@ var Routes = require('./server/routes.js')(APP);
 APP.use(EXPRESS.static(path.join(__dirname, './client')));
 
 //*********Beginning server*************
-APP.listen(8888, function(){
+APP.listen(process.env.PORT || 8888, function(){
   console.log('listening on 8888');
 });

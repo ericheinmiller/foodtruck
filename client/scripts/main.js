@@ -1,22 +1,22 @@
 $(document).ready(function(){
 
   //initial variable declaration
-  var map,
-  infowindow,
-  address,
-  home = false,
-  address_search = null,
-  trucksArray = [],
-  selectedTruck,
-  buttonState,
-  sanFranciscoLatLong = {lat: 37.774, lng: -122.419};
+  var map;
+  var infowindow;
+  var address;
+  var home = false;
+  var address_search = null;
+  var trucksArray = [];
+  var selectedTruck;
+  var buttonState;
+  var sanFranciscoLatLong = {lat: 37.774, lng: -122.419};
 
 
   //when data-action="search" is clicked or when 'enter' key is pressed fire a search
   $(document).bind('keypress', function(e) {
-      if(e.keyCode==13){
-         $('[data-action=search]').trigger('click');
-       }
+    if(e.keyCode==13){
+       $('[data-action=search]').trigger('click');
+     }
   });
 
   $('[data-action=search]').click(function(){
@@ -24,7 +24,6 @@ $(document).ready(function(){
     address = $('[data-element=searchInput]').val();
     $.post("http://localhost:8888/address", {address: address}, function(searchOutput){
       buttonState.button('reset');
-      console.log(searchOutput);
 
       //reset home, and all the arrays
       home = false;
@@ -32,9 +31,8 @@ $(document).ready(function(){
       address_search = searchOutput.address.applicant;
 
       //push the list of trucks into the truck array
-      for(var i = 0; i < searchOutput.data.length; i++){
-        trucksArray.push(searchOutput.data[i]);
-      }
+        trucksArray = searchOutput.data;
+
       //redraw the map with new information
       initMap();
     });
@@ -75,7 +73,6 @@ $(document).ready(function(){
         starttime: 'Arrive here',
         endtime: 'Leave here'
       };
-      console.log(homeAddress);
       createMarker(homeAddress);
       home = true;
     }
@@ -103,7 +100,6 @@ $(document).ready(function(){
       lng: Number(place.lng)
     };
 
-    var placeLoc = location;
     var marker = new google.maps.Marker({
       map: map,
       position: location
