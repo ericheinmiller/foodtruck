@@ -1,19 +1,19 @@
 //**************EXPRESS SETUP**************
-const EXPRESS = require('express');
-const APP = EXPRESS();
-const HTTP = require('http');
-const path = require('path');
+var EXPRESS = require('express');
+var APP = EXPRESS();
+var HTTP = require('http');
+var path = require('path');
 //**************EXPRESS SETUP**************
 
 
 //*********BODY PARSER + EXPRESS***********
-const bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 APP.use(bodyParser.urlencoded({ extended: false }));
 APP.use(bodyParser.json());
 //*********BODY PARSER + EXPRESS***********
 
 
-const Routes = require('./server/routes.js')(APP);
+var Routes = require('./server/routes.js')(APP);
 
 APP.use(EXPRESS.static(path.join(__dirname, './client')));
 
