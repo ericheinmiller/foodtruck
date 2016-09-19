@@ -27,8 +27,7 @@ I haven't implemented tests yet and that will be done with I expand this to a la
 # Contact Info
 - email: ericheinmiller@gmail.com
 - linkedin: https://www.linkedin.com/in/ericheinmiller
-- resume: 
-- 
+- resume: http://ericheinmiller-main.herokuapp.com/resume/ericheinmillerresume.pdf
 
 # Deployed App
 https://protected-forest-85987.herokuapp.com/
