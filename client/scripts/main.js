@@ -70,7 +70,10 @@ $(document).ready(function(){
       var homeAddress = {
         lat: address_search.lat,
         lng: address_search.lng,
-        applicant: address
+        applicant: address,
+        info: 'Inputted Address Location',
+        starttime: 'Arrive here',
+        endtime: 'Leave here'
       };
       console.log(homeAddress);
       createMarker(homeAddress);

@@ -24,11 +24,18 @@ module.exports = {
 
       }).on('error', function(e){
         console.log(e);
+        res.json(e);
+        return;
       });
 
       //once response is done, change the message into JSON, and set maximum and minimum lat and long
       response.on('end', function(){
         message = JSON.parse(message);
+        if(message.status == 'INVALID_REQUEST'){
+          res.json('Invalid Request');
+          return;
+        }
+        console.log(message);
         var maxLat = message.results[0].geometry.location.lat + 0.05;
         var minLat = message.results[0].geometry.location.lat - 0.05;
         var maxLng = message.results[0].geometry.location.lng + 0.05;
